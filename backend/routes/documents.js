@@ -6,7 +6,7 @@ const {
   createDocs,
   modifyDocs,
   deleteDocs,
-} = require("../controllers/document");
+} = require("../controllers/docsController");
 
 const jwtAuth = require("../middlewares/jwtAuth");
 

@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const createError = require("http-errors");
 const express = require("express");
-const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
@@ -18,12 +17,11 @@ const documents = require("./routes/documents");
 const app = express();
 
 connectDB();
-
 initFirebaseAdmin();
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: process.env.FIREBASE_PROJECT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -39,10 +37,7 @@ app.use(logger("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use(cookieParser());
-
-app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/auth", auth);
 app.use("/documents", jwtAuth, documents);
