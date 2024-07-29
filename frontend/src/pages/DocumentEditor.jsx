@@ -70,6 +70,8 @@ const DocumentEditor = () => {
 
   const handleSave = async () => {
     await updateDocument(id, title, content);
+
+    navigate(`/documents`);
   };
 
   const handleDelete = async () => {

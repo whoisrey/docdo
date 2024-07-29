@@ -14,7 +14,7 @@ export const EditorContainer = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
   gap: 1rem;
-  
+
   h2 {
     font-size: ${({ theme }) => theme.fontSize.xxlarge};
   }

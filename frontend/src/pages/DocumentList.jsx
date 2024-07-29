@@ -13,7 +13,7 @@ const DocumentList = () => {
     const loadDocuments = async () => {
       try {
         const data = await fetchDocuments();
-        
+
         setDocuments(data);
       } catch (error) {
         console.error("Error fetching documents:", error);

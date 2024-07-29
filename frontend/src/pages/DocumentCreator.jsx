@@ -8,7 +8,7 @@ import { CreatorContainer, TitleContainer, ContentContainer, ButtonContainer } f
 const DocumentCreator = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  
+
   const navigate = useNavigate();
 
   const handleCreate = async () => {

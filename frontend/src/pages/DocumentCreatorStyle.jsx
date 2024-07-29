@@ -12,40 +12,40 @@ export const CreatorContainer = styled.div`
 `
 
 export const TitleContainer = styled.div`
-display: flex;
-gap: 1rem;
+  display: flex;
+  gap: 1rem;
 
-h2 {
-  font-size: ${({ theme }) => theme.fontSize.xxlarge};
-}
+  h2 {
+    font-size: ${({ theme }) => theme.fontSize.xxlarge};
+  }
 
-input {
-  outline: none;
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  border: 4px solid ${({ theme }) => theme.color.blackColor};
-}
+  input {
+    outline: none;
+    font-size: ${({ theme }) => theme.fontSize.medium};
+    border: 4px solid ${({ theme }) => theme.color.blackColor};
+  }
 `
 
 export const ContentContainer = styled.div`
-display: flex;
-gap: 1rem;
+  display: flex;
+  gap: 1rem;
 
-h2 {
-  font-size: ${({ theme }) => theme.fontSize.xxlarge};
-}
+  h2 {
+    font-size: ${({ theme }) => theme.fontSize.xxlarge};
+  }
 
-textArea {
-  border: 4px solid ${({ theme }) => theme.color.blackColor};
-}
+  textArea {
+    border: 4px solid ${({ theme }) => theme.color.blackColor};
+  }
 `
 
 export const ButtonContainer = styled.div`
-display: flex;
-gap: 2rem;
-font-size: ${({ theme }) => theme.fontSize.medium};
+  display: flex;
+  gap: 2rem;
+  font-size: ${({ theme }) => theme.fontSize.medium};
 
-.delete-button {
-  color: ${({ theme }) => theme.color.redColor};
-  font-weight: bold;
-}
+  .delete-button {
+    color: ${({ theme }) => theme.color.redColor};
+    font-weight: bold;
+  }
 `
