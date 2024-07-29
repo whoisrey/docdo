@@ -55,25 +55,66 @@ server.on("listening", onListening);
 
 const io = socketIo(server);
 
+const documentRooms = {};
+
 io.on("connection", (socket) => {
   console.log("New client connected");
 
   socket.on("joinDocument", (documentId) => {
+    const room = documentRooms[documentId] || { users: [], cursors: {} };
+
+    if (room.users.length >= 2) {
+      socket.emit("error", "Room is full");
+      return;
+    }
+
+    room.users.push(socket.id);
+    documentRooms[documentId] = room;
     socket.join(documentId);
+    io.to(documentId).emit("userJoined", room.users.length);
   });
 
   socket.on("leaveDocument", (documentId) => {
+    const room = documentRooms[documentId];
+    if (room) {
+      room.users = room.users.filter((user) => user !== socket.id);
+      delete room.cursors[socket.id];
+      if (room.users.length === 0) {
+        delete documentRooms[documentId];
+      } else {
+        documentRooms[documentId] = room;
+        io.to(documentId).emit("userLeft", room.users.length);
+        io.to(documentId).emit("cursorUpdate", room.cursors);
+      }
+    }
     socket.leave(documentId);
   });
 
   socket.on("documentEdit", (data) => {
     const { documentId, content, cursorPosition } = data;
-    socket
-      .to(documentId)
-      .broadcast.emit("documentEdit", { content, cursorPosition });
+    const room = documentRooms[documentId];
+    if (room) {
+      room.cursors[socket.id] = cursorPosition;
+      io.to(documentId).emit("documentEdit", { content, cursorPosition });
+      io.to(documentId).emit("cursorUpdate", room.cursors);
+    }
   });
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
+    for (const documentId in documentRooms) {
+      const room = documentRooms[documentId];
+      room.users = room.users.filter((user) => user !== socket.id);
+      delete room.cursors[socket.id];
+      if (room.users.length === 0) {
+        delete documentRooms[documentId];
+      } else {
+        documentRooms[documentId] = room;
+        io.to(documentId).emit("userLeft", room.users.length);
+        io.to(documentId).emit("cursorUpdate", room.cursors);
+      }
+    }
   });
 });
+
+module.exports = server;
