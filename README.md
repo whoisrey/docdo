@@ -44,8 +44,8 @@
 ┃ ┣ 📂database
 ┃ ┃ ┗ connection.js
 ┃ ┣ 📂middlewares
-┃ ┃ ┣ firebaseAdmin.js
-┃ ┃ ┗ jwtAuth.js
+┃ ┃ ┣ firebaseMiddleware.js
+┃ ┃ ┗ jwtMiddleware.js
 ┃ ┣ 📂models
 ┃ ┃ ┣ Document.js
 ┃ ┃ ┗ User.js
