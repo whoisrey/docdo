@@ -34,7 +34,7 @@
 - `App.jsx`: 해당 프로젝트 루트 파일
 
 ```
-⛵️Docdo
+📝Docdo
 ┣ 🗂️backend
 ┃ ┣ 📂bin
 ┃ ┃ ┗ www
