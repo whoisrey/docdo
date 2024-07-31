@@ -16,11 +16,11 @@
 
 | 로그인 (Google) | 문서 생성 |
 |-----------|-----------|
-| <img src="./frontend/public/images/로그인.gif" width="400px" alt="로그인"> | <img src="./frontend/public/images/생성.gif" width="400px" display="inline" alt="문서생성"> |
+| <img src="./frontend/public/images/로그인.gif" width="380px" alt="로그인"> | <img src="./frontend/public/images/생성.gif" width="380px" display="inline" alt="문서생성"> |
 
 | 문서 수정 | 문서 삭제 | 
 |-----------|-----------|
-| <img src="./frontend/public/images/수정.gif" width="400px" display="inline" alt="문서수정"> | <img src="./frontend/public/images/삭제.gif" width="400px" display="inline" alt="문서삭제"> |
+| <img src="./frontend/public/images/수정.gif" width="380px" display="inline" alt="문서수정"> | <img src="./frontend/public/images/삭제.gif" width="380px" display="inline" alt="문서삭제"> |
 <br>
 
 ## 🗂️ Project Structure
