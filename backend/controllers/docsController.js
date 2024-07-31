@@ -4,7 +4,9 @@ const Document = require("../models/Document");
 
 const renderDocs = async (req, res, next) => {
   try {
-    const documents = await Document.find({ writers: req.user.uid });
+    const documents = await Document.find(
+      req.user?.uid ? { writers: req.user.uid } : {}
+    );
 
     res.json(documents);
   } catch (error) {
