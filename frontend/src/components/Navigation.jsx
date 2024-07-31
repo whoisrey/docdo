@@ -34,7 +34,7 @@ const Navigation = () => {
       <h1 className="a11y-hidden">상단 목록</h1>
       <NavList>
         <NavItem>
-          <Link to="/documents">
+          <Link to="/">
             <img src={writingLogo} alt="글 쓰는 소년"/>
           </Link>
         </NavItem>
