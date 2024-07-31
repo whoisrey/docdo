@@ -7,10 +7,12 @@ const DocumentSchema = new Schema({
     type: String,
     required: true,
   },
+
   content: {
     type: String,
     required: true,
   },
+
   writers: [
     {
       type: Schema.Types.ObjectId,
@@ -18,10 +20,12 @@ const DocumentSchema = new Schema({
       required: true,
     },
   ],
+
   createdAt: {
     type: Date,
     default: Date.now,
   },
+
   updatedAt: {
     type: Date,
     default: Date.now,
@@ -30,6 +34,7 @@ const DocumentSchema = new Schema({
 
 DocumentSchema.pre("save", function (next) {
   this.updatedAt = Date.now();
+
   next();
 });
 

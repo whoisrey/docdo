@@ -4,7 +4,7 @@ const createError = require("http-errors");
 
 const User = require("../models/User");
 
-const getJWT = async (req, res) => {
+const getJWT = async (req, res, next) => {
   const { idToken } = req.body;
 
   try {
@@ -15,6 +15,7 @@ const getJWT = async (req, res) => {
 
     if (!user) {
       user = new User({ uid, email, name, picture });
+
       await user.save();
     }
 
@@ -28,4 +29,4 @@ const getJWT = async (req, res) => {
   }
 };
 
-module.exports = { getJWT };
+module.exports = getJWT;

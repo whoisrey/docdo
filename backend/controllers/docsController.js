@@ -14,7 +14,7 @@ const renderDocs = async (req, res, next) => {
   }
 };
 
-const renderUserDocs = async (req, res) => {
+const renderUserDocs = async (req, res, next) => {
   try {
     const document = await Document.findById(req.params.id);
 
@@ -34,7 +34,7 @@ const renderUserDocs = async (req, res) => {
   }
 };
 
-const createDocs = async (req, res) => {
+const createDocs = async (req, res, next) => {
   const { title, content } = req.body;
 
   if (!title || !content) {
@@ -57,7 +57,7 @@ const createDocs = async (req, res) => {
   }
 };
 
-const modifyDocs = async (req, res) => {
+const modifyDocs = async (req, res, next) => {
   const { title, content } = req.body;
 
   if (!title || !content) {
@@ -88,7 +88,7 @@ const modifyDocs = async (req, res) => {
   }
 };
 
-const deleteDocs = async (req, res) => {
+const deleteDocs = async (req, res, next) => {
   try {
     const document = await Document.findById(req.params.id);
 

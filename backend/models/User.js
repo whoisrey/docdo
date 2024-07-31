@@ -8,25 +8,30 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+
   email: {
     type: String,
     required: true,
     unique: true,
     lowercase: true,
   },
+
   name: {
     type: String,
     required: true,
   },
+
   picture: {
     type: String,
   },
+
   documents: [
     {
       type: Schema.Types.ObjectId,
       ref: "Document",
     },
   ],
+
   createdAt: {
     type: Date,
     default: Date.now,

@@ -8,7 +8,7 @@ const {
   deleteDocs,
 } = require("../controllers/docsController");
 
-const jwtAuth = require("../middlewares/jwtMiddleware");
+const { jwtAuth } = require("../middlewares/jwtMiddleware");
 
 const router = express.Router();
 

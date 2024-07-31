@@ -22,4 +22,20 @@ const jwtAuth = async (req, res, next) => {
   }
 };
 
-module.exports = jwtAuth;
+const jwtInit = async (req, res, next) => {
+  const token = req.cookies["token"] || req.headers["authorization"];
+
+  try {
+    if (token) {
+      res.clearCookie("token");
+      req.headers["authorization"] = "";
+      req.user = null;
+
+      next();
+    }
+  } catch (error) {
+    next(createError(401, "토큰이 유효하지 않습니다."));
+  }
+};
+
+module.exports = { jwtAuth, jwtInit };

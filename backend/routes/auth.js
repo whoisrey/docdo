@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getJWT } = require("../controllers/jwtController");
+const getJWT = require("../controllers/jwtController");
 
 const router = express.Router();
 
