@@ -19,7 +19,9 @@ const DocumentEditor = () => {
   const textareaRef = useRef();
 
   useEffect(() => {
-    socketRef.current = io(process.env.REACT_APP_API_URL);
+    socketRef.current = io(process.env.REACT_APP_API_URL, {
+      withCredentials: true,
+    });
 
     socketRef.current.emit("joinDocument", id);
 
