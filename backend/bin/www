@@ -58,9 +58,9 @@ server.on("listening", onListening);
 const io = socketIo(server, {
   cors: {
     origin:
-      process.env.NODE_ENV === "production"
-        ? process.env.PROD_FIREBASE_PROJECT_URL
-        : process.env.DEV_FIREBASE_PROJECT_URL,
+      process.env.NODE_ENV === "development"
+        ? process.env.DEV_FIREBASE_PROJECT_URL
+        : process.env.PROD_FIREBASE_PROJECT_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },

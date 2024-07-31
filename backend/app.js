@@ -23,9 +23,9 @@ initFirebaseAdmin();
 app.use(
   cors({
     origin:
-      process.env.NODE_ENV === "production"
-        ? process.env.PROD_FIREBASE_PROJECT_URL
-        : process.env.DEV_FIREBASE_PROJECT_URL,
+      process.env.NODE_ENV === "development"
+        ? process.env.DEV_FIREBASE_PROJECT_URL
+        : process.env.PROD_FIREBASE_PROJECT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
