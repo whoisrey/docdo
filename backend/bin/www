@@ -17,7 +17,7 @@ const normalizePort = (value) => {
   return false;
 };
 
-const port = normalizePort(process.env.PORT || "8080");
+const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
 const server = http.createServer(app);
@@ -57,7 +57,10 @@ server.on("listening", onListening);
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FIREBASE_PROJECT_URL,
+    origin:
+      process.env.NODE_ENV === "production"
+        ? process.env.PROD_FIREBASE_PROJECT_URL
+        : process.env.DEV_FIREBASE_PROJECT_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },
