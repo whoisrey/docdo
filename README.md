@@ -18,6 +18,7 @@
 
 ## 🗂️ Project Structure
 ### Backend
+- `bin`: 서버 실행 파일
 - `controllers`: 프로젝트의 요청 로직을 처리하는 함수
 - `database`: MongoDB에 연결을 설정하는 파일
 - `models`: 컨트롤러와 데이터베이스 사이에서 데이터의 유효성을 검사하는 함수 (스키마 정의)
@@ -44,8 +45,8 @@
 ┃ ┣ 📂database
 ┃ ┃ ┗ connection.js
 ┃ ┣ 📂middlewares
-┃ ┃ ┣ firebaseAdmin.js
-┃ ┃ ┗ jwtAuth.js
+┃ ┃ ┣ firebaseMiddleware.js
+┃ ┃ ┗ jwtMiddleware.js
 ┃ ┣ 📂models
 ┃ ┃ ┣ Document.js
 ┃ ┃ ┗ User.js
