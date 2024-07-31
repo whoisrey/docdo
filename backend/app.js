@@ -8,8 +8,8 @@ const cors = require("cors");
 
 const connectDB = require("./database/connection");
 
-const initFirebaseAdmin = require("./middlewares/firebaseAdmin");
-const jwtAuth = require("./middlewares/jwtAuth");
+const initFirebaseAdmin = require("./middlewares/firebaseMiddleware");
+const jwtAuth = require("./middlewares/jwtMiddleware");
 
 const auth = require("./routes/auth");
 const documents = require("./routes/documents");

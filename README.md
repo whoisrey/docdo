@@ -39,7 +39,7 @@
 ┃ ┣ 📂bin
 ┃ ┃ ┗ www
 ┃ ┣ 📂controller
-┃ ┃ ┣ document.js
+┃ ┃ ┣ documentController.js
 ┃ ┃ ┗ jwtController.js
 ┃ ┣ 📂database
 ┃ ┃ ┗ connection.js
