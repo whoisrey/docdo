@@ -7,6 +7,7 @@ import { LoginContainer } from "./UserLoginStyle";
 
 import GoogleLogo from "../assets/google.png"
 import axios from "axios";
+import config from "../config";
 
 
 const UserLogin = () => {
@@ -18,7 +19,7 @@ const UserLogin = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const idToken = await result.user.getIdToken(true);
 
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/google`, {
+      const response = await axios.post(`${config.API_URL}/auth/google`, {
         idToken,
       });
 
