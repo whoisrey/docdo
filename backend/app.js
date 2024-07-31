@@ -11,6 +11,7 @@ const connectDB = require("./database/connection");
 const initFirebaseAdmin = require("./middlewares/firebaseMiddleware");
 const { jwtAuth } = require("./middlewares/jwtMiddleware");
 
+const index = require("./routes/index");
 const auth = require("./routes/auth");
 const documents = require("./routes/documents");
 
@@ -42,6 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use("/", index);
 app.use("/auth", auth);
 app.use("/documents", jwtAuth, documents);
 
