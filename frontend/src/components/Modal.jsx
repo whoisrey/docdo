@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
+
+import { ModalBackground, ModalContainer, ButtonContainer } from "./ModalStyle";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { googleProvider } from "../firebase";
 
-import { LoginContainer } from "./UserLoginStyle";
-
-import GoogleLogo from "../assets/google.png"
 import axios from "axios";
 import config from "../config";
 
-
-const UserLogin = () => {
+const LoginModal = ({ onClose }) => {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -25,18 +23,25 @@ const UserLogin = () => {
       localStorage.setItem("token", response.data.token);
 
       navigate("/documents");
+      onClose();
     } catch (error) {
       console.error("Error logging in with Google", error);
     }
   };
 
+
   return (
-    <LoginContainer>
-      <h1 className="a11y-hidden">입장하기</h1>
-      <img src={GoogleLogo} className="google-logo" alt="구글 흑백 로고"/>
-      <button onClick={handleGoogleLogin}>구글로 입장하기</button>
-    </LoginContainer>
+    <ModalBackground>
+      <ModalContainer>
+        <h2>계정이 필요합니다.</h2>
+        <p>구글 아이디는 있으시죠?</p>
+        <ButtonContainer>
+          <button onClick={onClose}>닫기</button>
+          <button onClick={handleGoogleLogin}>로그인</button>
+        </ButtonContainer>
+      </ModalContainer>
+    </ModalBackground>
   );
 };
 
-export default UserLogin;
+export default LoginModal;

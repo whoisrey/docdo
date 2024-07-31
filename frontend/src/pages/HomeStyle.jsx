@@ -2,8 +2,11 @@ import styled, { keyframes } from "styled-components";
 
 export const HomeContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  padding-top: 4rem;
   flex-wrap: wrap;
   position: absolute;
   top: 50%;
@@ -12,6 +15,10 @@ export const HomeContainer = styled.div`
   width: 100%;
   height: 100%;
   font-size: ${({ theme }) => theme.fontSize.xxlarge};
+
+  .title {
+    color: ${({ theme }) => theme.color.darkGrayColor};
+  }
 `;
 
 const typing = keyframes`

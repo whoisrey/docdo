@@ -7,9 +7,9 @@ import UserLogin from "./UserLogin";
 
 import { Navbar, NavList, NavItem, NavButton } from "./NavigationStyle";
 
-import writingLogo from "../assets/writing.png"
+import writingLogo from "../assets/logo.png"
 
-const Navigation = () => {
+const Navigation = ({ closeModal }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const Navigation = () => {
 
     localStorage.removeItem("token");
 
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -35,7 +35,7 @@ const Navigation = () => {
       <NavList>
         <NavItem>
           <Link to="/">
-            <img src={writingLogo} alt="글 쓰는 소년"/>
+            <img src={writingLogo} onClick={closeModal} alt="글 쓰는 소년"/>
           </Link>
         </NavItem>
         <NavItem>
