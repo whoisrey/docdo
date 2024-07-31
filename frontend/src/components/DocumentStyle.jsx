@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DocumentBox = styled.div`
+export const DocumentContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin: 2rem;
@@ -24,5 +24,30 @@ export const DocumentBox = styled.div`
 
   h2 {
     font-size: ${({ theme }) => theme.fontSize.xlarge};
+  }
+`
+
+export const DateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 0.5rem;
+
+  span {
+    font-weight: bold;
+  }
+`
+
+export const CreatedDate = styled.div`
+  display: flex;
+  gap: 0.4rem;
+`
+
+export const UpdatedDate = styled.div`
+  display: flex;
+  gap: 0.4rem;
+
+  span {
+    color: ${({ theme }) => theme.color.redColor};
   }
 `

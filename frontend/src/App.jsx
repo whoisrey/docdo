@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -10,26 +10,23 @@ import DocumentCreator from "./pages/DocumentCreator";
 import Navigation from "./components/Navigation";
 import Modal from "./components/Modal";
 
-import Theme from "./styles/Theme";
-import { GlobalStyle, Container } from "./styles/GlobalStyle";
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
 
+import Theme from "./styles/Theme";
+import { GlobalStyle, Container } from "./styles/GlobalStyle";
+
 const PrivateRoute = ({ component: Component, showModal }) => {
   const location = useLocation();
-  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-    } else if (!auth.currentUser) {
+    if (!auth.currentUser) {
       showModal();
     }
-  }, [location, showModal]);
+  }, [auth.currentUser, location, showModal]);
 
   return auth.currentUser ? <Component /> : <Navigate to="/" />;
 };
-
 const App = () => {
   const [isLogin, showIsLogin] = useState(false);
 

@@ -7,7 +7,7 @@ import { googleProvider } from "../firebase";
 import axios from "axios";
 import config from "../config";
 
-const LoginModal = ({ onClose }) => {
+const Modal = ({ onClose }) => {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -23,16 +23,24 @@ const LoginModal = ({ onClose }) => {
       localStorage.setItem("token", response.data.token);
 
       navigate("/documents");
+
       onClose();
     } catch (error) {
       console.error("Error logging in with Google", error);
     }
   };
 
+  const handleCloseModal = () => {
+    onClose()
+  }
+
+  const stopClickEvent = (event) => {
+    event.stopPropagation();
+  }
 
   return (
-    <ModalBackground>
-      <ModalContainer>
+    <ModalBackground onClick={handleCloseModal}>
+      <ModalContainer onClick={stopClickEvent}>
         <h2>계정이 필요합니다.</h2>
         <p>구글 아이디는 있으시죠?</p>
         <ButtonContainer>
@@ -44,4 +52,4 @@ const LoginModal = ({ onClose }) => {
   );
 };
 
-export default LoginModal;
+export default Modal;

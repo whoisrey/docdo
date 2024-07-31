@@ -19,7 +19,26 @@ export const HomeContainer = styled.div`
   .title {
     color: ${({ theme }) => theme.color.darkGrayColor};
   }
-`;
+  `;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: monospace;
+  font-size: ${({ theme }) => theme.fontSize.xxxsmall};
+  color: ${({ theme }) => theme.color.darkGrayColor};
+
+  .slogan {
+    color: ${({ theme }) => theme.color.darkTealColor};
+  }
+
+  strong {
+    font-weight: bold;
+    color: ${({ theme }) => theme.color.darkTealColor};
+  }
+`
 
 const typing = keyframes`
   0% { width: 0; }
