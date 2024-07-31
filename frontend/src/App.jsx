@@ -14,7 +14,7 @@ import { GlobalStyle, Container } from "./styles/GlobalStyle";
 import { auth } from "./firebase";
 
 const PrivateRoute = ({ component: Component }) => {
-  return auth.currentUser ? <Component /> : <Navigate to="/login" />;
+  return auth.currentUser ? <Component /> : <Navigate to="/" />;
 };
 
 const App = () => {
