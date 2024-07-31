@@ -24,6 +24,7 @@ app.use(
     origin: process.env.FIREBASE_PROJECT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
